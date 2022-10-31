@@ -1,14 +1,57 @@
-import { Text, StyleSheet, View, Image, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView, Alert} from 'react-native'
+import { Text, StyleSheet, View, Image, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView, Alert, PermissionsAndroid} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fondo, logo, usuario, contrasena } from '../image'
 import ModalWait from '../components/ModalWait'
 
+
   export default Login = ({navigation}) => {
     const [dataLogin, setdataLogin] = useState({usuario:"",password:""})
-    const [modalWait, setmodalWait] = useState(false)
+  
+    const [Wait, setWait] = useState(false)
     let user = "iuvity"
     let password = "iuvity"
+
+
+    useEffect(() => {
+      setWait(true)
+      setTimeout(() => {
+        setWait(false)
+      }, 2000);
+    }, [])
+    useEffect(() => {
+      const requestGpsPermission = async () => {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            // {
+            //   title: "Cool Photo App Camera Permission",
+            //   message:
+            //     "Cool Photo App needs access to your camera " +
+            //     "so you can take awesome pictures.",
+            //   buttonNeutral: "Ask Me Later",
+            //   buttonNegative: "Cancel",
+            //   buttonPositive: "OK"
+            // }
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            console.log("You can use the gps");
+          } else {
+            console.log("gps permission denied");
+          }
+        } catch (err) {
+          console.warn(err);
+        }
+      };
+      requestGpsPermission()
+    }, []);
+
+ 
+   // Geolocation.getCurrentPosition(info => console.log(info));
+   // navigator.geolocation.getCurrentPosition()
+   //Geolocation.getCurrentPositio()
+  
+
     const loginUser = async () => {
       if (dataLogin.password !== password || dataLogin.usuario !== user) {
         Alert.alert(
@@ -16,22 +59,26 @@ import ModalWait from '../components/ModalWait'
           "",
           [{ text: "OK" }]
         );
-          
+          return
       }
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Desktop' }],
+        
+      });
       return (
-        <View>
+        
         <ModalWait></ModalWait>
-      </View>
+        
       )
     }
     
     
     return (
-      <KeyboardAvoidingView behavior="height" style={styles.conteiner}>
-      {/* <View style={styles.conteiner} > */}
-      <ModalWait></ModalWait>
+      // <KeyboardAvoidingView behavior="padding" style={styles.conteiner}>
+      <View style={styles.conteiner} >
          <ImageBackground source={fondo} resizeMode="cover" style={styles.image}>
-            <View style={{flex:0.4, alignItems:"center"}}>
+            <View style={{flex:0.3, alignItems:"center"}}>
               <Image 
                 style={styles.logo}
                 source={require("../image/logo.png")}
@@ -68,12 +115,13 @@ import ModalWait from '../components/ModalWait'
               <TouchableOpacity
                 style={styles.button}
                  onPress={()=> loginUser()}
+                // onPress={()=> getLocation()}
               ><Text style={styles.testoBoton}>LOGIN</Text>
               </TouchableOpacity>
             </View>
             </ImageBackground>
-      {/* </View> */}
-      </KeyboardAvoidingView>
+      </View>
+     // {/* </KeyboardAvoidingView> */}
     )
   
 }
@@ -81,11 +129,14 @@ import ModalWait from '../components/ModalWait'
 const styles = StyleSheet.create({
     conteiner:{
         flex:1,
-        
+       position:"relative"
     },
     image: {
       flex: 1,
-      justifyContent: "center"
+      height:"100%",
+      width:"100%",
+      justifyContent: "center",
+      position:"absolute"
     },
     inputText:{
       height: 40, 
