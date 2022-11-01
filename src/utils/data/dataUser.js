@@ -8,19 +8,37 @@ const dataUser =
                 tipo:"Corriente",
                 numerocuenta:5060,
                 saldo: 50000,
-                movimientos:{
-                    tanferencia:{monto:500, destino:"Carlos"},
-                    pago:{monto:2000, destino:"Claro"}
-                }
+                movimientos:[
+                    {Transderencia:{monto:500, destino:"Carlos"}},
+                    {Pago:{monto:2000, destino:"Claro"}},
+                    
+                ]
             },
             {
                 tipo:"Ahorro",
                 numerocuenta:5160,
                 saldo: 50000,
-                movimientos:{
-                    tanferencia:{monto:400, destino:"Pedro"},
-                    pago:{monto:1000, destino:"Tigo"}
-                }
+                movimientos:[
+                    {Transderencia:{monto:400, destino:"Pedro"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Pago:{monto:1000, destino:"Tigo"}},
+                    {Transderencia:{monto:400, destino:"Pedro"}},
+                ]
             }
         ]    
     },
@@ -32,19 +50,19 @@ const dataUser =
                 tipo:"Corriente",
                 numerocuenta:5260,
                 saldo: 60000,
-                movimientos:{
-                    tanferencia:{monto:600, destino:"Iuvity"},
-                    pago:{monto:1000, destino:"Won"}
-                }
+                movimientos:[
+                   { Transderencia:{monto:600, destino:"Iuvity"}},
+                    {Pago:{monto:1000, destino:"Won"}}
+                ]
             },
             {
                 tipo:"Ahorro",
                 numerocuenta:5360,
                 saldo: 60000,
-                movimientos:{
-                    tanferencia:{monto:700, destino:"Pedro"},
-                    pago:{monto:1500, destino:"Movistar"}
-                }
+                movimientos:[
+                    {Transderencia:{monto:700, destino:"Pedro"}},
+                    {Pago:{monto:1500, destino:"Movistar"}}
+                ]
             }
         ]    
     }

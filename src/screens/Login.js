@@ -12,7 +12,6 @@ import ModalWait from '../components/ModalWait'
     let user = "iuvity"
     let password = "iuvity"
 
-
     useEffect(() => {
       setWait(true)
       setTimeout(() => {
@@ -45,13 +44,7 @@ import ModalWait from '../components/ModalWait'
       };
       requestGpsPermission()
     }, []);
-
- 
-   // Geolocation.getCurrentPosition(info => console.log(info));
-   // navigator.geolocation.getCurrentPosition()
-   //Geolocation.getCurrentPositio()
   
-
     const loginUser = async () => {
       if (dataLogin.password !== password || dataLogin.usuario !== user) {
         Alert.alert(
@@ -63,14 +56,9 @@ import ModalWait from '../components/ModalWait'
       }
       navigation.reset({
         index: 0,
-        routes: [{ name: 'Desktop' }],
+        routes: [{ name: 'Desktop',params:dataLogin.usuario  }],
         
       });
-      return (
-        
-        <ModalWait></ModalWait>
-        
-      )
     }
     
     

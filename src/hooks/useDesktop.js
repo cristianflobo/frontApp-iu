@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Geolocation from '@react-native-community/geolocation';
 import axios from "react-native-axios"
+import {dataUser} from '../utils/data/dataUser'
 let apiKey = "8fb023c76c6239e263a2dfe8d44efe46"
 
 const dataData = 
@@ -48,11 +49,11 @@ const dataData =
   "cod": 200
 }
 
-const useDesktop = () => {
+const useDesktop = (nameUser) => {
     const [location, setLocation] = useState(false);
     const [imgClima, setImgClima] = useState({name:"", temp:"", img:"", clima:""})
 
-
+    const dataUserName = dataUser.find(item => item.name === nameUser)
     useEffect(() => {
         (function(){Geolocation.getCurrentPosition(
             position => {
@@ -64,6 +65,7 @@ const useDesktop = () => {
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000},
           ); })();
     }, [])
+
     const clima = async() =>{
         let latitud = location.coords.latitude
         let longitud = location.coords.longitude
@@ -71,7 +73,6 @@ const useDesktop = () => {
         console.log(dataClima.data.main.temp, dataClima.data.name)
         // setImgClima(dataClima.data.weather[0].icon)
 
-        console.log("ajaaa",round)
         setImgClima({
             ...imgClima,
             name:dataClima.data.name,
@@ -80,7 +81,8 @@ const useDesktop = () => {
             clima:dataClima.data.weather[0].main
        })
     }
-    if (location === false) {
+
+    if (imgClima.clima === "") {
         clima()
     }
     
@@ -88,6 +90,7 @@ const useDesktop = () => {
   return {
     location,
     imgClima,
+    dataUserName,
   }
 }
 
