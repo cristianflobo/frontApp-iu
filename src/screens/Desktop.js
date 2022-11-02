@@ -1,18 +1,17 @@
 import { StyleSheet, Text, View, ActivityIndicator, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import useDesktop from '../hooks/useDesktop'
-import Cuentas from '../components/Cuentas'
-import {fondocuentas } from '../image'
+import {fondo } from '../image'
+import { Cuentas } from '../components'
 
 export default Desktop = ({ navigation, route}) => {
-const { location, imgClima, dataUserName } = useDesktop(route.params)
-
+  const { location, imgClima, dataUserName } = useDesktop(route.params)
 
   return (
-    <ImageBackground source={fondocuentas} resizeMode="cover" style={styles.imgBackgroundcontainer}>
+    <ImageBackground source={fondo} resizeMode="cover" style={styles.imgBackgroundcontainer}>
     <View style={styles.conteiner}> 
         {
-          location === false?<ActivityIndicator size="large" color="blue" />:
+          location === false?<ActivityIndicator size="large" color="#24C777" />:
             <View style={styles.indicador}>
               <Text style={styles.textClima}>{imgClima.name}</Text>
               <Text style={styles.textClima}>{ Math.round(imgClima.temp)}℃</Text>
@@ -24,7 +23,7 @@ const { location, imgClima, dataUserName } = useDesktop(route.params)
             </View>
         } 
       <View style={styles.textMisCuentas} >
-          <Text style={{fontSize:30, color:"#98E8C1", fontWeight:"bold"}}>Mis Cuentas</Text>
+          <Text style={{fontSize:30, color:"#24C777", fontWeight:"bold"}}>Mis Cuentas</Text>
       </View>
       <View style={styles.conteinerCuentas}>
         <View style={styles.conteinerTextDataCuentas} > 
@@ -34,8 +33,8 @@ const { location, imgClima, dataUserName } = useDesktop(route.params)
           {
           dataUserName.cuentas.map((item, index)=>{
             return (
-              <View style={styles.dataMap}>
-                <Cuentas navigation={navigation} idUser={dataUserName.id} tipo={item.tipo} numero={item.numerocuenta} />
+              <View key={index+10} style={styles.dataMap}>
+                <Cuentas  navigation={navigation} idUser={dataUserName.id} tipo={item.tipo} numero={item.numerocuenta} />
               </View>
             )
           }) 
@@ -63,7 +62,6 @@ const styles = StyleSheet.create(
       flexDirection:"row",
       justifyContent:"space-between",
       alignItems:"center",
-     // backgroundColor:"grey",
     },
     climImg:{
       height:80,
@@ -72,7 +70,7 @@ const styles = StyleSheet.create(
     conteinerCuentas:{
       flex:0.5,
       width:"80%",
-      backgroundColor:" rgba(0, 124, 119, 0.8)",
+      backgroundColor:" rgba(6, 63, 70, 0.8)",
       borderRadius:20,
       borderWidth:2,
       borderColor:"#26D07C",

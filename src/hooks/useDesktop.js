@@ -52,26 +52,25 @@ const dataData =
 const useDesktop = (nameUser) => {
     const [location, setLocation] = useState(false);
     const [imgClima, setImgClima] = useState({name:"", temp:"", img:"", clima:""})
+   
 
     const dataUserName = dataUser.find(item => item.name === nameUser)
-    useEffect(() => {
-        (function(){Geolocation.getCurrentPosition(
-            position => {
-              setLocation(position);
-            },
-            error => {
-              setLocation(false);
-            },
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000},
-          ); })();
+    useEffect(() => { 
+        Geolocation.getCurrentPosition(info => console.log(setLocation(info)));  
     }, [])
 
     const clima = async() =>{
-        let latitud = location.coords.latitude
-        let longitud = location.coords.longitude
-        let dataClima = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${apiKey}`)
-        console.log(dataClima.data.main.temp, dataClima.data.name)
-        // setImgClima(dataClima.data.weather[0].icon)
+      let dataClima = ""
+        if (location !== false) {
+          let latitud = location.coords.latitude
+          let longitud = location.coords.longitude
+          try {
+            dataClima = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${apiKey}`)
+            
+          } catch (error) {
+            console.log(error)
+          }
+          console.log(dataClima.data.main.temp, dataClima.data.name)
 
         setImgClima({
             ...imgClima,
@@ -80,10 +79,11 @@ const useDesktop = (nameUser) => {
             img:dataClima.data.weather[0].icon,
             clima:dataClima.data.weather[0].main
        })
+        }
     }
 
     if (imgClima.clima === "") {
-        clima()
+      clima()
     }
     
     console.log("---------------------",imgClima)
