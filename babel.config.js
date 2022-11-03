@@ -8,7 +8,10 @@ module.exports = function(api) {
       'react-native-reanimated/plugin',
       {globals: ['__scanCodes']}
     ]
-    ]
+    ],
+    
+
   };
   
 };
+

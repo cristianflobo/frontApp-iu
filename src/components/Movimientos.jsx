@@ -1,15 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { formatCurrency } from "react-native-format-currency";
+import { movimientos } from "../styles/stylesComponent/movimientos";
 
 const Movimientos = ({ data }) => {
   let key = Object.keys(data);
-  formatCurrency({ amount: 1234.56, code: "ARS" });
   return (
-    <View
-      key={key[0]}
-      style={{ display: "flex", flexDirection: "row", color: "white" }}
-    >
+    <View key={key[0]} style={styles.conteinerMovimientos}>
       <Text style={styles.text}> {Object.keys(data)}</Text>
       <Text style={styles.text}> a {data[`${key[0]}`].destino} </Text>
       <Text style={styles.text}>
@@ -24,9 +21,4 @@ const Movimientos = ({ data }) => {
 
 export default Movimientos;
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 15,
-    color: "#26D07C",
-  },
-});
+const styles = StyleSheet.create(movimientos);

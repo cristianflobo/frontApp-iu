@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { cuentas } from "../styleComponent/cuentas";
+import { cuentas } from "../styles/stylesComponent/cuentas";
 
 const Cuentas = ({ navigation, tipo, numero, idUser }) => {
   return (
@@ -26,5 +26,4 @@ const Cuentas = ({ navigation, tipo, numero, idUser }) => {
 };
 
 export default Cuentas;
-
 const styles = StyleSheet.create(cuentas);

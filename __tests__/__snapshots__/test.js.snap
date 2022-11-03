@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly screen Login 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      {
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        {
+          "testUri": "../../../src/image/iuvity.webp",
+        }
+      }
+      style={
+        [
+          {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flex": 0.25,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../src/image/usuario.png",
+            }
+          }
+          style={
+            {
+              "alignItems": "center",
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Usuario"
+          style={
+            {
+              "borderBottomWidth": 2,
+              "borderColor": "#26D07C",
+              "height": 40,
+              "marginLeft": 9,
+              "width": "60%",
+            }
+          }
+          value=""
+        />
+      </View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginTop": 15,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../src/image/contrasena.png",
+            }
+          }
+          style={
+            {
+              "alignItems": "center",
+              "height": 40,
+              "width": 30,
+            }
+          }
+        />
+        <TextInput
+          onChangeText={[Function]}
+          placeholder="Contraseña"
+          secureTextEntry={true}
+          style={
+            {
+              "borderBottomWidth": 2,
+              "borderColor": "#26D07C",
+              "height": 40,
+              "marginLeft": 9,
+              "width": "60%",
+            }
+          }
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flex": 0.3,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#26D07C",
+            "borderRadius": 50,
+            "height": 40,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "opacity": 1,
+            "width": 250,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+              "fontSize": 15,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          LOGIN
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
