@@ -8,24 +8,12 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { fondoWait } from "../image";
-import { dataUser } from "../utils/data/dataUser";
 import { formatCurrency } from "react-native-format-currency";
 import { Movimientos, ReadQr, GenerarQr } from "../components";
+import useDetail from "../hooks/useDetail";
 
 export default function DetailAccount({ navigation, route }) {
-  const [selectScreenQr, setSelectScreenQr] = useState("move");
-  
-  const accountUser = dataUser.find((item) => item.id === route.params.idUser);
-
-  const detailAccountUser = accountUser.cuentas.find((item) => {
-    if (
-      item.numerocuenta === route.params.numero &&
-      item.tipo === route.params.tipo
-    ) {
-      return item;
-    }
-  });
-
+  const {selectScreenQr, setSelectScreenQr, detailAccountUser} = useDetail(route)
   return (
     <ImageBackground
       source={fondoWait}
@@ -93,14 +81,12 @@ export default function DetailAccount({ navigation, route }) {
         <View style={styles.conteinerButton}>
           <TouchableOpacity
             style={styles.button}
-            // onPress={()=> loginUser()}
-            onPress={() => requestCameraPermission()}
+            onPress={() => setSelectScreenQr("read")}
           >
             <Text style={styles.testoBoton}>Leer QR</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
-            // onPress={()=> loginUser()}
             onPress={() => setSelectScreenQr("write")}
           >
             <Text style={styles.testoBoton}>Enviar QR</Text>

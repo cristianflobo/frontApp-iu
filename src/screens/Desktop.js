@@ -25,9 +25,9 @@ export default Desktop = ({ navigation, route }) => {
           <ActivityIndicator size="large" color="#24C777" />
         ) : (
           <View style={styles.indicador}>
-            <Text style={styles.textClima}>{imgClima.name}</Text>
-            <Text style={styles.textClima}>{Math.round(imgClima.temp)}℃</Text>
-            <Text style={styles.textClima}>{imgClima.clima}</Text>
+            <Text style={styles.textClima}> {imgClima.name}</Text>
+            <Text style={styles.textClima}> {Math.round(imgClima.temp)}℃</Text>
+            <Text style={styles.textClima}> {imgClima.clima}</Text>
             <Image
               style={styles.climImg}
               source={{
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   },
   dataMap: {
     flex: 0.07,
-    //width:"90%",
     borderWidth: 1,
     borderColor: "#26D07C",
     justifyContent: "center",
@@ -122,7 +121,3 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
-// api key 8fb023c76c6239e263a2dfe8d44efe46
-
-//https://api.openweathermap.org/data/2.5/weather?lat=6.217&lon=-75.567&appid=8fb023c76c6239e263a2dfe8d44efe46

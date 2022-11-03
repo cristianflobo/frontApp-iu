@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { Desktop, DetailAccount, Login } from "./src/screens/index";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import 'react-native-reanimated'
 
 const Stack = createNativeStackNavigator();
 

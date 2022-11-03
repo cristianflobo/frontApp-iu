@@ -13,21 +13,18 @@ const useLogin = (navigation) => {
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log("You can use the gps");
           try {
             const granted = await PermissionsAndroid.request(
               PermissionsAndroid.PERMISSIONS.CAMERA
             );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-              console.log("You can use the camera");
-            } else {
-              console.log("Camera permission denied");
+            if (granted != PermissionsAndroid.RESULTS.GRANTED) {
+              Alert.alert("Problemas acceso CAMARA", "", [{ text: "OK" }]);
             }
           } catch (err) {
             console.warn(err);
           }
         } else {
-          console.log("gps permission denied");
+          Alert.alert("Problemas acceso GPS", "", [{ text: "OK" }]);
         }
       } catch (err) {
         console.warn(err);
