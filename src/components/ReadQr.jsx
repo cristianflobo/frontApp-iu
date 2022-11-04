@@ -1,23 +1,12 @@
-import {
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  Text,
-} from "react-native";
+import { StyleSheet, View, ActivityIndicator, Text } from "react-native";
 import React from "react";
 import { Camera } from "react-native-vision-camera";
 import useReadQr from "../hooks/useReadQr";
 import { readQr } from "../styles/stylesComponent/readQr";
 
 const ReadQr = () => {
-  const {
-    hasPermission,
-    device,
-    frameProcessor,
-    cameraActive,
-    dataReadQr,
-    setcameraActive,
-  } = useReadQr();
+  const { hasPermission, device, cameraActive, dataReadQr, frameProcessor } =
+    useReadQr();
   if (cameraActive) {
     return (
       <View style={styles.conteinerQr}>

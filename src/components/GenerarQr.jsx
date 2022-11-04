@@ -5,24 +5,24 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import QRCode from "react-native-qrcode-svg";
 import { Picker } from "@react-native-picker/picker";
 import { generadorQR } from "../styles/stylesComponent/generadorQr";
+import useGenerarQr from "../hooks/useGenerarQr";
 
-const GenerarQr = ({ navigation }) => {
-  const [selectedCuenta, setSelectedCuenta] = useState("Ahorro");
-  const [selectedMoneda, setSelectedMoneda] = useState("COP");
-  const [input, setInput] = useState(0);
-  const [generarFinish, setgenerarFinish] = useState(false);
-  const [dataQr, setdataQr] = useState("");
-
-  const generate = () => {
-    setdataQr(
-      `[{cuenta:${selectedCuenta}},{monto:${input}},{moneda:${selectedMoneda}}]`
-    );
-    setgenerarFinish(!generarFinish);
-  };
+const GenerarQr = () => {
+  const {
+    selectedMoneda,
+    selectedCuenta,
+    input,
+    generarFinish,
+    dataQr,
+    setSelectedCuenta,
+    setSelectedMoneda,
+    setInput,
+    generate,
+  } = useGenerarQr();
 
   return (
     <View style={styles.conteinerGenerarQr}>
@@ -32,7 +32,7 @@ const GenerarQr = ({ navigation }) => {
         <Picker
           selectedValue={selectedCuenta}
           style={{ height: 50, width: 150, color: "#78D6A7" }}
-          onValueChange={(itemValue, itemIndex) => setSelectedCuenta(itemValue)}
+          onValueChange={(itemValue) => setSelectedCuenta(itemValue)}
         >
           <Picker.Item label="Ahorro" value="Ahorro" />
           <Picker.Item label="Corriente" value="Corriente" />
@@ -51,7 +51,7 @@ const GenerarQr = ({ navigation }) => {
         <Picker
           selectedValue={selectedMoneda}
           style={{ height: 50, width: 150, color: "#78D6A7" }}
-          onValueChange={(item, itemIndex) => setSelectedMoneda(item)}
+          onValueChange={(item) => setSelectedMoneda(item)}
         >
           <Picker.Item label="COP" value="COP" />
           <Picker.Item label="USD" value="USD" />
@@ -63,7 +63,6 @@ const GenerarQr = ({ navigation }) => {
       ) : null}
       <TouchableOpacity
         style={styles.button}
-        // onPress={()=> loginUser()}
         onPress={() => generate()}
       >
         <Text style={styles.testoBoton}>

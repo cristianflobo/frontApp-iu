@@ -14,7 +14,8 @@ import useDetail from "../hooks/useDetail";
 import { detailAccount } from "../styles/stylesScreens/detailAccount";
 
 export default function DetailAccount({ navigation, route }) {
-  const {selectScreenQr, setSelectScreenQr, detailAccountUser} = useDetail(route)
+  const { selectScreenQr, setSelectScreenQr, detailAccountUser } =
+    useDetail(route);
   return (
     <ImageBackground
       source={fondoWait}
@@ -23,11 +24,11 @@ export default function DetailAccount({ navigation, route }) {
     >
       <View style={styles.conteinerCuentas}>
         <View style={styles.conteinerCuentasName}>
-          <Text style={{ fontSize: 20, color: "#78D6A7" }}>
+          <Text style={styles.textConteinerCuentasName}>
             {" "}
             Cuenta: {route.params.tipo}
           </Text>
-          <Text style={{ fontSize: 20, color: "#78D6A7" }}>
+          <Text style={styles.textConteinerCuentasName}>
             {" "}
             Saldo: ${" "}
             {
@@ -56,7 +57,7 @@ export default function DetailAccount({ navigation, route }) {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ fontSize: 20, color: "white" }}>Movimientos</Text>
+              <Text style={styles.textConteinerCuentasName}>Movimientos</Text>
             </View>
           ) : null}
           <ScrollView style={{ flex: 1 }}>

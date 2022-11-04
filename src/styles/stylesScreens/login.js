@@ -46,6 +46,15 @@ const login = {
     width: 30,
     height: 40,
   },
+  flexDirectionRow:{
+    flexDirection: "row"
+  },
+  marginTp:{
+    marginTop: 15
+  },
+  alignitem:{
+    alignItems: "center"
+  }
 };
 
 export { login };

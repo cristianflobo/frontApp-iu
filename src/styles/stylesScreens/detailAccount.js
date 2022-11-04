@@ -49,6 +49,10 @@ const detailAccount = {
     flexDirection: "row",
     width: "70%",
   },
+  textConteinerCuentasName:{
+    fontSize: 20, 
+    color: "#78D6A7" 
+  }
 };
 
 export { detailAccount };

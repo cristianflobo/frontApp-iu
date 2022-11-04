@@ -17,8 +17,8 @@ export default Login = ({ navigation }) => {
   return (
     <View style={styles.conteiner}>
       <ImageBackground source={fondo} resizeMode="cover" style={styles.image}>
-        <View style={{ flex: 0.25, alignItems: "center" }}>
-          <View style={{ flexDirection: "row" }}>
+        <View style={[{ flex: 0.25}, styles.alignitem]}>
+          <View style={styles.flexDirectionRow}>
             <Image style={styles.icon} source={usuario} />
             <TextInput
               style={styles.inputText}
@@ -29,7 +29,7 @@ export default Login = ({ navigation }) => {
               value={dataLogin.usuario}
             />
           </View>
-          <View style={{ flexDirection: "row", marginTop: 15 }}>
+          <View style={[styles.marginTp,styles.flexDirectionRow]}>
             <Image style={styles.icon2} source={contrasena} />
             <TextInput
               secureTextEntry
@@ -42,7 +42,7 @@ export default Login = ({ navigation }) => {
             />
           </View>
         </View>
-        <View style={{ flex: 0.3, alignItems: "center" }}>
+        <View style={[{ flex: 0.3}, styles.alignitem]}>
           <TouchableOpacity style={styles.button} onPress={() => loginUser()}>
             <Text style={styles.testoBoton}>LOGIN</Text>
           </TouchableOpacity>

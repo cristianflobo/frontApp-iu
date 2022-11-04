@@ -7,7 +7,7 @@ const Movimientos = ({ data }) => {
   let key = Object.keys(data);
   return (
     <View key={key[0]} style={styles.conteinerMovimientos}>
-      <Text style={styles.text}> {Object.keys(data)}</Text>
+      <Text style={styles.text}> {key}</Text>
       <Text style={styles.text}> a {data[`${key[0]}`].destino} </Text>
       <Text style={styles.text}>
         {" "}
