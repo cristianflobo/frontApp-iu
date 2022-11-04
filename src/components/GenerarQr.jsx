@@ -10,7 +10,6 @@ import QRCode from "react-native-qrcode-svg";
 import { Picker } from "@react-native-picker/picker";
 import { generadorQR } from "../styles/stylesComponent/generadorQr";
 
-console.log("nitran")
 const GenerarQr = ({ navigation }) => {
   const [selectedCuenta, setSelectedCuenta] = useState("Ahorro");
   const [selectedMoneda, setSelectedMoneda] = useState("COP");
